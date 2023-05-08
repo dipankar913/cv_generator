@@ -1,0 +1,41 @@
+
+
+.cvpart1{
+    background-color:rgb(53, 41, 41) ;
+    /* height: 100vh; */
+    color: white;
+}
+
+.cvpart2{
+    background-color: white;
+    /* height: 100vh; */
+}
+
+.CVT-img{
+    width: 100px;
+    height: 100px;
+}
+html{
+    font-size: 14px;
+}
+
+
+@media (max-width: 700px) {
+    html {
+      font-size: 9px;
+    }
+  }
+  
+#CV-form{
+    /* display: none; */
+}
+
+#CV-template{
+    display: none;
+}
+
+.btn{
+    background-color: aqua;
+    color: black;
+}
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+
+    <!-- bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container" id="CV-form">
+        <h1 class="text-center my-3 ">Generate your resume now</h1>
+        <p class="fw-light text-center">By Dipankar Sharma</p>
+
+        <div class="row">
+            <div class="col-6">
+                <h3 class="text-center">Persional Information</h3>
+
+                <div class=" mt-4">
+                    <label for="nameField" class="nameField">Enter your Name</label>
+                    <input type="text" id="nameField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class=" mt-4">
+                    <label for="phoneField" class="phoneField">Enter your Phone Number</label>
+                    <input type="text" id="phoneField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class=" mt-4">
+                    <label for="emailField" class="emailField">Enter your Email</label>
+                    <input type="text" id="emailField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class=" mt-4">
+                    <label for="addressField" class="addressField">Enter your Address</label>
+                    <textarea id="addressField" placeholder="Enter here" class="form-control" rows="4"></textarea>
+                </div>
+
+                <!-- Links -->
+                <p class="text-secondaary fw-bold my-3">Important Links</p>
+                <div class="">
+                    <label for="fbField" class="fbField">Facebook Link</label>
+                    <input type="text" id="fbField" placeholder="Enter here" class="form-control">
+                </div>
+                
+                <div class="">
+                    <label for="linkedlnField" class="linkedlnField">Linkedln Link</label>
+                    <input type="text" id="linkedlnField" placeholder="Enter here" class="form-control">
+                </div>
+                <div class="">
+                    <label for="instaField" class="instaField">Instagram Link</label>
+                    <input type="text" id="instaField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <!-- Language -->
+                <p class="text-secondaary fw-bold my-3">Language</p>
+                <div class="mt-4" id="language">
+                    <label for="languageField" class="LanguageField">Language</label>
+                    <input type="text" placeholder="Enter here" class="form-control languageField " />
+                    <div class="container text-center mt-3" id="languageAddButton">
+                        <button onclick="addNewlanguage()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+                <!-- Hobbies-->
+                <p class="text-secondaary fw-bold my-3">Hobbies</p>
+                <div class="mt-4" id="hobbies">
+                    <label for="hobbiesField" class="HobbiesField">Hobbies</label>
+                    <input type="text" placeholder="Enter here" class="form-control hobbiesField " />
+                    <div class="container text-center mt-3" id="hobbiesAddButton">
+                        <button onclick="addNewhobbies()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- image -->
+                <div class="">
+                    <label for="imgnstaField" class="imgField">Choose your image</label>
+                    <input type="file" id="imgField" placeholder="Enter here" class="form-control">
+                </div>
+            </div>
+            <div class="col-6">
+                <h3 class="text-center">Professional Information </h3>
+
+                <!-- objective -->
+                <div class=" mt-4">
+                    <label for="objectiveField" class="objectiveField">Objective</label>
+                    <textarea type="text" id="objectiveField" placeholder="Enter here" class="form-control " rows="5"></textarea>
+                </div>
+                <!-- Skill -->
+                <div class=" mt-4">
+                    <label for="skillField" class="skillField">Your Skill</label>
+                    <textarea type="text" id="skillField" placeholder="Enter here" class="form-control " rows="5"></textarea>
+                </div>
+
+                <!-- qualificatiion -->
+                <div class="mt-4" id="academic">
+                    <label for="academicField" class="AcademicField">Academic Qualification</label>
+                    <textarea type="text" placeholder="Enter here" class="form-control academicField "></textarea>
+                    <div class="container text-center mt-3" id="academicAddButton">
+                        <button onclick="addNewacademic()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div class=" mt-4" id="certification">
+                    <label for="certificationField" class="CertificationField">Certification</label>
+                    <textarea type="text" placeholder="Enter here" class="form-control certificationField "></textarea>
+                    <div class="container text-center mt-3" id="certificationAddButton">
+                        <button onclick="addNewcertification()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mt-4" id="we">
+                    <label for="weField" class="WeField">Work Experiences</label>
+                    <textarea type="text" placeholder="Enter here" class="form-control weField "></textarea>
+                    <div class="container text-center mt-3 " id="weAddButton">
+                        <button onclick="addNewwe()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container text-center my-5">
+            <button onclick="generateCV()" class="btn btn-primary">Generate CV</button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+<!-- CV template -->
+
+    <div class="container  mt-5" id="CV-template">
+        <div class="row border border-dark">
+            <div class="col-4 cvpart1 py-5">
+                <div class="text-center">
+                    <img src="./image/profile1.jpg" class="img-fluid  CVT-img rounded-circle" id="CVT-imag" alt="profile image">
+                    <div class="CVT-name">
+                        <p class="h4" id="CVT-name">Dipankar Sharma</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="mx-5">
+                    <div class="CVT-Contact">
+                        <h4 class="fw-bold">Contact info</h4>
+                        <p class="fw-normal mb-1">Address:</p>
+                        <p class="fw-light " id="CVT-address">Rangia Balagau, Guwahati, india</p>
+
+                        <p class="fw-normal mb-1">Phone:</p>
+                        <p class="fw-light"  id="CVT-phone">9876543210</p>
+
+                        <p class="fw-normal mb-1">Email:</p>
+                        <p class="fw-light"  id="CVT-email">9876543210</p>
+
+                        <p class="fw-bold mb-1">Links:</p>
+
+                        <p class="fw-normal mb-1">Facebook :</p>
+                        <p class="mb-1"><a  id="CVT-fb"href="#1">https://wwww.facebook.com/</a></p>
+
+                        <p class="fw-normal mb-1">LinkedIn :</p>
+                        <p class="mb-1"><a  id="CVT-linkedIn" href="#2">https://wwww.linkedin.com/</a></p>
+                        <p class="fw-normal mb-1">Instagram :</p>
+                        <p class="mb-1"><a  id="CVT-insta" href="#2">https://wwww.instagram.com/</a></p>
+                    </div>
+                    <div class="CVT-Language mt-4">
+                        <h4 class="fw-bold">Language</h4>
+                        <ul id="CVT-language">
+                            <li>English</li>
+                            <li>English</li>
+                            <li>English</li>
+                        </ul>
+
+                    </div>
+                    <div class="CVT-Hobbies mt-4">
+                        <h4 class="fw-bold">Hobbies</h4>
+                        <ul id="CVT-hobbies">
+                            <li>Reading Noval</li>
+                            <li>Football</li>
+                            <li>Cricket</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-8 cvpart2 my-5 ">
+                <div class="CVT-objective mx-4">
+                    <h4 class="fw-bold">Objective</h4>
+                    <hr>
+                    <p class="fw-normal mb-1" id="CVT-objective">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis suscipit
+                        ipsum laudantium, cumque, optio atque delectus necessitatibus itaque maxime, aliquid rerum
+                        consectetur esse adipisci eaque. Natus aut totam dignissimos enim dolor aspernatur facere ad
+                        commodi quidem explicabo sequi nobis quae quaerat nesciunt facilis necessitatibus possimus illo,
+                        sunt rerum! Modi, vitae.</p>
+                    
+                </div>
+
+                <div class="CVT-skill mx-4 mt-5">
+                    <h4 class="fw-bold">Skill Highlight</h4>
+                    <hr>
+                    <h5 class="fw-bold" id="CVT-skill">HTML,CSS,Bootstrap, JavaScript,ReactJs,PHP,MySQL,Figma</h5>
+                </div>
+
+                <div class="CVT-qualification mx-4 mt-5">
+                    <h4 class="fw-bold">Academic Qualification</h4>
+                    <hr>
+                    <ul id="CVT-aq">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, vitae.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, vel?</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda.</li>
+                    </ul>
+                </div>
+
+
+                <div class="CVT-Certification mx-4 mt-5">
+                    <h4 class="fw-bold">Certification</h4>
+                    <hr>
+                    <ul id="CVT-certification">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, vitae.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, vel?</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda.</li>
+                    </ul>
+                </div>
+                <div class="CVT-experience mx-4 mt-5">
+                    <h4 class="fw-bold">Work Experience</h4>
+                    <hr>
+                    <ul id="CVT-we">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, vitae.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, vel?</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda.</li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="container text-center mt-5">
+            <button onclick="printCV()" class="btn btn-primary">Print CV</button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- js -->
+    <script src="script.js"></script>
+</body>
+
+</html>
